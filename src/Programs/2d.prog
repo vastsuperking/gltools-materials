@@ -1,0 +1,20 @@
+<program>
+  <shaders>
+    <vertex-shader resource="Shaders/2d.vert"/>
+    <fragment-shader resource="Shaders/2d.frag"/>
+  </shaders>
+
+  <uniforms>
+  	<uniform name="modelMat" usage="MODEL_MATRIX" type="MAT3"/>
+    <uniform name="viewMat" usage="VIEW_MATRIX" type="MAT3"/>
+    <uniform name="projMat" usage="PROJECTION_MATRIX" type="MAT3"/>
+    <uniform name="diffuseTex" usage="DIFFUSE_SAMPLER" type="SAMPLER2D"/>
+    <uniform name="diffuseColor" usage="DIFFUSE_COLOR" type="VEC4"/>
+  </uniforms>
+
+  <attributes>
+   	<!--<ffp-vert-attribute/>-->  	
+	<attribute name="vertPos" usage="VERTEX_POSITION" type="VEC2"/>
+	<attribute name="vertTexCoord" usage="VERTEX_TEX_COORD" type="VEC2"/>
+  </attributes>
+</program>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material name="Simple2D">
+  <parameters>
+  	<color name="materialDiffuseColor" usage="DIFFUSE_COLOR" value="color(1, 1, 1, 1)"/>
+  	<tex2D name="materialDiffuseTexture" usage="DIFFUSE_SAMPLER" unit="0"/> 
+  </parameters>
+  <technique name="Default" default="true">
+	<program resource="Programs/2d.prog"/>
+	<defines>
+		<define param="materialDiffuseTexture">DIFFUSE_SAMPLER</define>
+  </technique>
+</material>
