@@ -5,8 +5,14 @@
   	<tex2D name="materialDiffuseTexture" usage="DIFFUSE_SAMPLER" unit="0"/> 
   </parameters>
   <technique name="Default" default="true">
+  	<globalParams>
+  		<mat3 usage="MODEL_MATRIX"/>
+  		<mat3 usage="VIEW_MATRIX"/>
+  		<mat3 usage="PROJECTION_MATRIX"/>
+  	</globalParams>
 	<program resource="Programs/2d.prog"/>
 	<defines>
 		<define param="materialDiffuseTexture">DIFFUSE_SAMPLER</define>
+	</defines>
   </technique>
 </material>
