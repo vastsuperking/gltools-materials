@@ -8,8 +8,15 @@
   	<uniform name="modelMat" usage="MODEL_MATRIX" type="MAT3"/>
     <uniform name="viewMat" usage="VIEW_MATRIX" type="MAT3"/>
     <uniform name="projMat" usage="PROJECTION_MATRIX" type="MAT3"/>
-    <uniform name="diffuseTex" usage="DIFFUSE_SAMPLER" type="SAMPLER2D"/>
     <uniform name="diffuseColor" usage="DIFFUSE_COLOR" type="VEC4"/>
+    
+    <uniform name="lightPos" usage="LIGHT_POSITION" type="VEC3"/>
+    <uniform name="lightDiffuseColor" usage="LIGHT_DIFFUSE_COLOR" type="VEC4"/>
+    <uniform name="lightAmbientColor" usage="LIGHT_AMBIENT_COLOR" type="VEC4"/>
+    <uniform name="lightAttenuation" usage="LIGHT_ATTENUATION" type="VEC3"/>
+
+	<uniform name="normalMap" usage="NORMAL_SAMPLER" type="SAMPLER2D"/>
+    <uniform name="diffuseTex" usage="DIFFUSE_SAMPLER" type="SAMPLER2D"/>
   </uniforms>
 
   <attributes>

@@ -2,7 +2,17 @@
 <material name="Simple2D">
   <parameters>
   	<color name="materialDiffuseColor" usage="DIFFUSE_COLOR" value="color(1, 1, 1, 1)"/>
+  	
+  	<boolean name="useLighting"/>
+  	<vec3 name="lightPos" usage="LIGHT_POSITION" value="vec3(0, 0, 0)"/>
+  	
+  	<color name="lightDiffuseColor" usage="LIGHT_DIFFUSE_COLOR" value="color(1, 1, 1, 1)"/>
+  	<color name="lightAmbientColor" usage="LIGHT_AMBIENT_COLOR" value="color(0, 0, 0, 1)"/>
+  	
+  	<vec3 name="lightAttenuation" usage="LIGHT_ATTENUATION"/>
+  	
   	<tex2D name="materialDiffuseTexture" usage="DIFFUSE_SAMPLER" unit="0"/> 
+  	<tex2D name="materialNormalMap" usage="NORMAL_SAMPLER" unit="1"/>
   </parameters>
   <technique name="Default" default="true">
   	<globalParams>
@@ -13,6 +23,10 @@
 	<program resource="Programs/2d.prog"/>
 	<defines>
 		<define param="materialDiffuseTexture">DIFFUSE_SAMPLER</define>
+		
+		<define param="materialNormalMap">NORMAL_MAP</define>
+		
+		<define param="useLighting">LIGHTING</define>
 	</defines>
   </technique>
 </material>
