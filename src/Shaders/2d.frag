@@ -57,7 +57,7 @@ void main() {
 
 	finalColor = ambientComp + (diffuseComp * attenuation);
 	#else
-	finalColor = diffuse;
+	//finalColor = diffuse;
 	#endif
-	//gl_FragColor = finalColor;
+	gl_FragColor = finalColor;
 }
