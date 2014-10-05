@@ -52,7 +52,6 @@ void main() {
 		//gl_FragColor = vec4(attenuation);
 	
 		vec4 diffuseComp = diffuse * lightDiffuseColor * max(dot(normal, lightDir), 0.0);
-		gl_FragColor = diffuseComp;
 		vec4 ambientComp = diffuse * lightAmbientColor;
 
 		finalColor = ambientComp + (diffuseComp * attenuation);

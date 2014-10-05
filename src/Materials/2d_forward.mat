@@ -20,7 +20,7 @@
   		<mat3 usage="VIEW_MATRIX"/>
   		<mat3 usage="PROJECTION_MATRIX"/>
   	</globalParams>
-	<program resource="Programs/2d.prog"/>
+	<program resource="Programs/2d_forward.prog"/>
 	<defines>
 		<define param="materialDiffuseTexture">DIFFUSE_SAMPLER</define>
 		

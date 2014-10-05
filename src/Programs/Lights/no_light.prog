@@ -1,0 +1,17 @@
+<program>
+	<shaders>
+		<fragment-shader resource="Shaders/Lights/no_light.frag"/>
+		<vertex-shader resource="Shaders/Lights/no_light.vert"/>
+	</shaders>
+	
+	<uniforms>
+		<uniform name="vertexBufferSampler" usage="GBUFFER_VERTEX_SAMPLER" type="SAMPLER2D"/>
+		<uniform name="normalBufferSampler" usage="GBUFFER_NORMAL_SAMPLER" type="SAMPLER2D"/>
+		<uniform name="diffuseBufferSampler" usage="GBUFFER_DIFFUSE_SAMPLER" type="SAMPLER2D"/>
+	</uniforms>
+	
+	<attributes>
+		<attribute name="vertTexCoord" usage="VERTEX_TEX_COORD" type="VEC2"/>
+		<attribute name="vertPos" usage="VERTEX_POSITION" type="VEC2"/>
+	</attributes>
+</program>
