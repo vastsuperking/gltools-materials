@@ -28,11 +28,16 @@ void main() {
 								(lightAttenuation.y * lightDist) + 
 								(lightAttenuation.z * lightDist * lightDist));
 	
-	vec4 diffuseComp = diffuse * lightDiffuseColor * max(dot(normal, lightDir), 1.0);
+	vec4 diffuseComp;
+	if (normal != vec3(0, 0, 0)) {
+		diffuseComp = (diffuse * lightDiffuseColor * max(dot(normal, lightDir), 1.0)) * attenuation;
+	} else {
+		//diffuseComp = diffuse * attenuation;
+		diffuseComp = vec4(1, 1, 1, 1);
+	}	
+
 	vec4 ambientComp = diffuse * lightAmbientColor;
 
-	finalColor = ambientComp + (diffuseComp * attenuation);
-	//finalColor = vec4(normal, 1);
-
+	finalColor = ambientComp + diffuseComp;
 	gl_FragColor = finalColor;
 }

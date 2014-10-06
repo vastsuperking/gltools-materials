@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material name="Simple2D">
+  <parameters>
+	<color name="fontColor" usage="FONT_COLOR" value="color(1, 1, 1, 1)"/>
+	
+	<boolean name="useDeferred"/>
+	
+	<!-- any glyph materials must have this parameter --!>
+	<tex2D name="glyphTexture" usage="GLYPH_SAMPLER" unit="0"/>
+  </parameters>
+  <technique name="Default" default="true">
+  	<globalParams>
+  		<mat3 usage="MODEL_MATRIX"/>
+  		<mat3 usage="VIEW_MATRIX"/>
+  		<mat3 usage="PROJECTION_MATRIX"/>
+  	</globalParams>
+		<program resource="Programs/text.prog"/>
+	<defines>
+		<define param="useDeferred">DEFERRED</define>
+	</defines>
+  </technique>
+</material>
