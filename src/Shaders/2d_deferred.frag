@@ -1,4 +1,4 @@
-#version 110
+w#version 110
 
 uniform sampler2D normalMap;
 uniform sampler2D diffuseTex;
@@ -13,20 +13,29 @@ void main() {
 	//Compute diffuse color;
 	vec4 diffuse = vec4(1.0, 1.0, 1.0, 1.0);
 	vec3 normal = vec3(0, 0, 0);
-	
+
 	#ifdef DIFFUSE_SAMPLER
 		diffuse = texture2D(diffuseTex, fragTexCoord);
 	#endif
 	
-	//We know the diffuse color will always be there
 	diffuse *= diffuseColor;
 
-	#ifdef NORMAL_MAP
-		//RGB out of normalMap
-		vec3 normalMapRGB = texture2D(normalMap, fragTexCoord).rgb;
-		//Store normal from textureMap in normal
-		normal = normalize(normalMapRGB * 2.0 - 1.0);
+	//Set the normal to the defaults
+	#ifdef LIGHTING
+    		normal = vec3(0, 0, 0);
+	
+	
+		//We know the diffuse color will always be there
+		#ifdef NORMAL_MAP
+			//RGB out of normalMap
+			vec3 normalMapRGB = texture2D(normalMap, fragTexCoord).rgb;
+			//Store normal from textureMap in normal
+			normal = normalize(normalMapRGB * 2.0 - 1.0);
+		#endif
+	#else
+		normal = vec3(-1, -1, -1);
 	#endif
+
 	//Output format:
 	//Position
 	//Normal

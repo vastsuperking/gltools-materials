@@ -5,6 +5,7 @@
   	
   	<tex2D name="materialDiffuseTexture" usage="DIFFUSE_SAMPLER" unit="0"/> 
   	<tex2D name="materialNormalMap" usage="NORMAL_SAMPLER" unit="1"/>
+  	<bool name="useLighting" value="true"/>
   </parameters>
   <technique name="Default" default="true">
   	<globalParams>
@@ -16,6 +17,7 @@
 	<defines>
 		<define param="materialDiffuseTexture">DIFFUSE_SAMPLER</define>		
 		<define param="materialNormalMap">NORMAL_MAP</define>
+		<define param="useLighting">LIGHTING</define>
 	</defines>
   </technique>
 </material>

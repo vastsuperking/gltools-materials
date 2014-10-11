@@ -12,7 +12,7 @@ uniform vec3 lightAttenuation;
 varying vec2 fragTexCoord;
 
 void main() {
-	vec4 finalColor = vec4(0.0);
+	vec4 finalColor = vec4(0.0, 0.0, 0.0, 0.0);
 
 	vec4 diffuse = texture2D(diffuseBufferSampler, fragTexCoord);
 	vec2 vertexPos = texture2D(vertexBufferSampler, fragTexCoord).xy;
@@ -28,16 +28,13 @@ void main() {
 								(lightAttenuation.y * lightDist) + 
 								(lightAttenuation.z * lightDist * lightDist));
 	
-	vec4 diffuseComp;
-	if (normal != vec3(0, 0, 0)) {
-		diffuseComp = (diffuse * lightDiffuseColor * max(dot(normal, lightDir), 1.0)) * attenuation;
-	} else {
-		//diffuseComp = diffuse * attenuation;
-		diffuseComp = vec4(1, 1, 1, 1);
-	}	
 
+	vec4 diffuseComp = (diffuse * lightDiffuseColor * max(dot(normal, lightDir), 1.0)) * attenuation;
+	if (normal == vec3(-1, -1, -1)) diffuseComp = vec4(0, 0, 0, 0);
 	vec4 ambientComp = diffuse * lightAmbientColor;
 
 	finalColor = ambientComp + diffuseComp;
+	if (normal.x < 0.0 && normal.y < 0.0 && normal.z < 0.0) finalColor = diffuse;
+	//finalColor = vec4(normal, 1);
 	gl_FragColor = finalColor;
 }
