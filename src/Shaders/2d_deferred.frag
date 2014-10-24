@@ -33,7 +33,7 @@ void main() {
 			normal = normalize(normalMapRGB * 2.0 - 1.0);
 		#endif
 	#else
-		normal = vec3(-1, -1, -1);
+		normal = vec3(-10, -10, -10);
 	#endif
 
 	//Output format:

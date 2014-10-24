@@ -3,21 +3,28 @@
   <parameters>
 	<color name="fontColor" usage="FONT_COLOR" value="color(1, 1, 1, 1)"/>
 	
-	<boolean name="useDeferred"/>
-	
 	<!-- any glyph materials must have this parameter --!>
 	<tex2D name="glyphTexture" usage="GLYPH_SAMPLER" unit="0"/>
-	<bool name="useLighting" value="true"/>
+	<bool name="useLighting" value="false"/>
   </parameters>
-  <technique name="Default" default="true">
+  
+  <technique name="Regular" default="true">
+	<program resource="Programs/text_regular.prog"/>
   	<globalParams>
   		<mat3 usage="MODEL_MATRIX"/>
   		<mat3 usage="VIEW_MATRIX"/>
   		<mat3 usage="PROJECTION_MATRIX"/>
   	</globalParams>
-		<program resource="Programs/text.prog"/>
+  </technique>
+  
+  <technique name="Deferred" modes="DEFERRED">
+	<program resource="Programs/text_deferred.prog"/>
+  	<globalParams>
+  		<mat3 usage="MODEL_MATRIX"/>
+  		<mat3 usage="VIEW_MATRIX"/>
+  		<mat3 usage="PROJECTION_MATRIX"/>
+  	</globalParams>
 	<defines>
-		<define param="useDeferred">DEFERRED</define>
 		<define param="useLighting">LIGHTING</define>
 	</defines>
   </technique>

@@ -1,7 +1,7 @@
 <program>
   <shaders>
-    <vertex-shader resource="Shaders/text.vert"/>
-    <fragment-shader resource="Shaders/text.frag"/>
+    <vertex-shader resource="Shaders/Text/text_deferred.vert"/>
+    <fragment-shader resource="Shaders/Text/text_deferred.frag"/>
   </shaders>
 
   <uniforms>

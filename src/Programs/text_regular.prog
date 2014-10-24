@@ -1,0 +1,22 @@
+<program>
+  <shaders>
+    <vertex-shader resource="Shaders/Text/text_regular.vert"/>
+    <fragment-shader resource="Shaders/Text/text_regular.frag"/>
+  </shaders>
+
+  <uniforms>
+  	<uniform name="modelMat" usage="MODEL_MATRIX" type="MAT3"/>
+    <uniform name="viewMat" usage="VIEW_MATRIX" type="MAT3"/>
+    <uniform name="projMat" usage="PROJECTION_MATRIX" type="MAT3"/>
+
+	<uniform name="fontColor" usage="FONT_COLOR" type="VEC4"/>
+
+	<uniform name="glyphSampler" usage="GLYPH_TEXTURE" type="SAMPLER2D"/>
+  </uniforms>
+
+  <attributes>
+   	<!--<ffp-vert-attribute/>-->  	
+	<attribute name="vertPos" usage="VERTEX_POSITION" type="VEC2"/>
+	<attribute name="vertTexCoord" usage="VERTEX_TEX_COORD" type="VEC2"/>
+  </attributes>
+</program>
