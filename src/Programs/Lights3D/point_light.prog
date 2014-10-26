@@ -1,0 +1,26 @@
+<program>
+  <shaders>
+    <fragment-shader resource="Shaders/Lights3D/point_light.frag"/>
+    <vertex-shader   resource="Shaders/Lights3D/point_light.vert"/>
+  </shaders>
+
+  <uniforms>
+  	<uniform name="vertexBufferSampler" usage="GBUFFER_VERTEX_SAMPLER" type="SAMPLER2D"/>
+  	<uniform name="normalBufferSampler" usage="GBUFFER_NORMAL_SAMPLER" type="SAMPLER2D"/>
+  	<uniform name="diffuseBufferSampler" usage="GBUFFER_DIFFUSE_SAMPLER" type="SAMPLER2D"/>
+  	<uniform name="specularBufferSampler" usage="GBUFFER_SPECULAR_SAMPLER" type="SAMPLER2D"/>
+  	
+  	<uniform name="camWorldPos" usage="CAMERA_POSITION" type="VEC3"/>
+  	
+  	<uniform name="light.ambient" usage="LIGHT_AMBIENT_COLOR" type="VEC4"/>
+  	<uniform name="light.diffuse" usage="LIGHT_DIFFUSE_COLOR" type="VEC4"/>
+  	<uniform name="light.specular" usage="LIGHT_SPECULAR_COLOR" type="VEC4"/>
+  	<uniform name="light.position" usage="LIGHT_POSITION" type="VEC3"/>
+  	<uniform name="light.attenuation" usage="LIGHT_ATTENUATION" type="VEC3"/>
+  </uniforms>
+
+  <attributes>
+	<attribute name="vertTexCoord" usage="VERTEX_TEX_COORD" type="VEC2"/>
+    <attribute name="vertPos" usage="VERTEX_POSITION" type="VEC2"/>
+  </attributes>
+</program>

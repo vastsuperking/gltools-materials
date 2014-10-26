@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material name="OBJ">
+	<parameters>
+		<color name="ambientColor" usage="COLOR_AMBIENT" value="color(0, 0, 0, 0)"/>
+		<color name="diffuseColor" usage="COLOR_DIFFUSE" value="color(1, 1, 1, 1)"/>
+		<color name="specularColor" usage="COLOR_SPECULAR" value="color(0, 0, 0, 1)"/>
+		<tex2D name="diffuseMap" usage="DIFFUSE_SAMPLER" unit="0"/>
+		<tex2D name="ambientMap" usage="AMBIENT_SAMPLER" unit="1"/>
+		<tex2D name="specularMap" usage="SPECULAR_SAMPLER" unit="2"/>
+	</parameters>
+	<technique name="Regular" default="true">
+		<program resource="Programs/obj_regular.prog"/>
+		<globalParams>
+  			<mat4 usage="MODEL_MATRIX"/>
+  			<mat4 usage="VIEW_MATRIX"/>
+  			<mat4 usage="PROJECTION_MATRIX"/>
+  		</globalParams>
+  		<defines>
+  			<define param="diffuseMap">DIFFUSE_MAP</define>
+  		</defines>
+	</technique>
+	<technique name="Deferred" modes="DEFERRED">
+		<program resource="Programs/obj_deferred.prog"/>
+		<globalParams>
+  			<mat4 usage="MODEL_MATRIX"/>
+  			<mat4 usage="VIEW_MATRIX"/>
+  			<mat4 usage="PROJECTION_MATRIX"/>
+  			<mat3 usage="NORMAL_MATRIX"/>
+  		</globalParams>
+  		<defines>
+  			<define param="diffuseMap">DIFFUSE_MAP</define>
+  		</defines>
+	</technique>
+
+</material>

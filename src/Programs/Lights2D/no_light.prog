@@ -1,7 +1,7 @@
 <program>
 	<shaders>
-		<fragment-shader resource="Shaders/Lights/no_light.frag"/>
-		<vertex-shader resource="Shaders/Lights/no_light.vert"/>
+		<fragment-shader resource="Shaders/Lights2D/no_light.frag"/>
+		<vertex-shader resource="Shaders/Lights2D/no_light.vert"/>
 	</shaders>
 	
 	<uniforms>

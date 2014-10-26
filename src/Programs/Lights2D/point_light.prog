@@ -1,7 +1,7 @@
 <program>
 	<shaders>
-		<fragment-shader resource="Shaders/Lights/point_light.frag"/>
-		<vertex-shader resource="Shaders/Lights/point_light.vert"/>
+		<fragment-shader resource="Shaders/Lights2D/point_light.frag"/>
+		<vertex-shader resource="Shaders/Lights2D/point_light.vert"/>
 	</shaders>
 	
 	<uniforms>
