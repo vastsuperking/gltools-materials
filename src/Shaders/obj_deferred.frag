@@ -6,6 +6,7 @@ uniform mat4 projMat;
 uniform mat3 normalMat;
 
 uniform vec4 diffuseColor;
+uniform vec4 specularColor;
 uniform sampler2D diffuseTex;
 
 varying vec3 fragPos;
@@ -20,6 +21,5 @@ void main() {
 	gl_FragData[0] = vec4(fragPos, 1);
 	gl_FragData[1] = vec4(fragNormal, 1);
 	gl_FragData[2] = diffuse;
-	//No specular, so just put 0
-	gl_FragData[3] = vec4(0, 0, 0, 1);
+	gl_FragData[3] = specularColor;
 }
