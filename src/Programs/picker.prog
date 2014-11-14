@@ -1,0 +1,16 @@
+<program>
+	<shaders>
+		<vertex-shader resource="Shaders/picker.vert"/>
+	    <fragment-shader resource="Shaders/picker.frag"/>
+	</shaders>
+	<uniforms>
+	  	<uniform name="modelMat" usage="MODEL_MATRIX" type="MAT4"/>
+    	<uniform name="viewMat" usage="VIEW_MATRIX" type="MAT4"/>
+	    <uniform name="projMat" usage="PROJECTION_MATRIX" type="MAT4"/>
+	    
+	    <uniform name="pickingColor" usage="PICKING_COLOR" type="VEC4"/>
+	</uniforms>
+	<attributes>
+		<attribute name="vertPos" usage="VERTEX_POSITION" type="VEC3"/>
+	</attributes>
+</program>
