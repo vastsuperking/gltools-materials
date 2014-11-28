@@ -15,7 +15,7 @@
   	</globalParams>
 	<program resource="Programs/2d_deferred.prog"/>
 	<defines>
-		<define param="materialDiffuseTexture">DIFFUSE_SAMPLER</define>		
+		<define param="materialDiffuseTexture">DIFFUSE_SAMPLER</define>
 		<define param="materialNormalMap">NORMAL_MAP</define>
 		<define param="useLighting">LIGHTING</define>
 	</defines>
