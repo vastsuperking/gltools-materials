@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material name="Simple2D">
+  <parameters>
+  	<color name="color" usage="DIFFUSE_COLOR" value="color(1, 1, 1, 1)"/>
+  	<tex2D name="texture" usage="DIFFUSE_SAMPLER" unit="0"/> 
+  </parameters>
+  <technique name="Default" default="true">
+  	<globalParams>
+  		<mat3 usage="MODEL_MATRIX"/>
+  		<mat3 usage="PROJECTION_MATRIX"/>
+  	</globalParams>
+	<program resource="Programs/gui.prog"/>
+	<defines>
+		<define param="texture">DIFFUSE_SAMPLER</define>
+	</defines>
+  </technique>
+</material>
