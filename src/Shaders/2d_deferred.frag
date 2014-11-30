@@ -22,8 +22,7 @@ void main() {
 
 	//Set the normal to the defaults
 	#ifdef LIGHTING
-    		normal = vec3(0, 0, 0);
-	
+    	normal = vec3(0, 0, 0);
 	
 		//We know the diffuse color will always be there
 		#ifdef NORMAL_MAP

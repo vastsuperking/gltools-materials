@@ -31,9 +31,11 @@ void main() {
 	
 	//If the unnormalized normal is below the lower bound,
 	//then we should treat it as unlighted
+	
+	finalColor = vec4(normal, 1); 		
  	if (unNormalized.x < -1.0 && unNormalized.y < -1.0 && unNormalized.z < -1.0) {
 		finalColor = diffuse; 		
- 	//Otherwise, light it
+ 	    //Otherwise, light it
  	} else {
 		vec4 diffuseComp;
 		if (normal == vec3(0, 0, 0)) {
@@ -44,7 +46,7 @@ void main() {
 		vec4 ambientComp = diffuse * lightAmbientColor;
 		
 		finalColor = ambientComp + diffuseComp;
-	}	
+	}
 
 	gl_FragColor = finalColor;
 }
