@@ -20,9 +20,12 @@ void main() {
 	
 	diffuse *= diffuseColor;
 
+	if (diffuse == vec4(0)) discard;
+
 	//Set the normal to the defaults
 	#ifdef LIGHTING
-    	normal = vec3(0, 0, 0);
+		//normal straight up
+    	normal = vec3(0, 0, 1);
 	
 		//We know the diffuse color will always be there
 		#ifdef NORMAL_MAP

@@ -12,7 +12,7 @@ uniform vec3 lightAttenuation;
 varying vec2 fragTexCoord;
 
 void main() {
-	vec4 finalColor = vec4(0.0, 0.0, 0.0, 0.0);
+	vec4 finalColor = vec4(0.0, 0.0, 0.0, 1.0);
 
 	vec4 diffuse = texture2D(diffuseBufferSampler, fragTexCoord);
 	vec2 vertexPos = texture2D(vertexBufferSampler, fragTexCoord).xy;
@@ -25,9 +25,12 @@ void main() {
 	
 	lightDir = normalize(lightDir);
 	//Attenuation, x is constant, y is linear, z is quadradic
-	float attenuation = 1.0 / 	(lightAttenuation.x + 
-								(lightAttenuation.y * lightDist) + 
-								(lightAttenuation.z * lightDist * lightDist));
+	float r = (lightAttenuation.x) + 
+			  (lightAttenuation.y * lightDist) + 
+			  (lightAttenuation.z * lightDist * lightDist);
+	float attenuation = 0.0;
+	if (r == 0.0) attenuation = 0.0;
+	else attenuation = 1.0 / r; 
 	
 	//If the unnormalized normal is below the lower bound,
 	//then we should treat it as unlighted
@@ -37,14 +40,8 @@ void main() {
 		finalColor = diffuse; 		
  	    //Otherwise, light it
  	} else {
-		vec4 diffuseComp;
-		if (normal == vec3(0, 0, 0)) {
-			diffuseComp = diffuse * attenuation;
-		} else { 
-	 		diffuseComp = (diffuse * lightDiffuseColor * max(dot(normal, lightDir), 1.0)) * attenuation;
-		}
 		vec4 ambientComp = diffuse * lightAmbientColor;
-		
+		vec4 diffuseComp = (diffuse * lightDiffuseColor * max(dot(normal, lightDir), 0)) * attenuation;
 		finalColor = ambientComp + diffuseComp;
 	}
 
