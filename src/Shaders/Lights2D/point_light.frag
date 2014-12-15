@@ -41,7 +41,7 @@ void main() {
  	    //Otherwise, light it
  	} else {
 		vec4 ambientComp = diffuse * lightAmbientColor;
-		vec4 diffuseComp = (diffuse * lightDiffuseColor * max(dot(normal, lightDir), 0)) * attenuation;
+		vec4 diffuseComp = (diffuse * lightDiffuseColor * max(dot(normal, lightDir), 0.0)) * attenuation;
 		finalColor = ambientComp + diffuseComp;
 	}
 
